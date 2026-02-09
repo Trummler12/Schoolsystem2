@@ -3,12 +3,16 @@
 Folder PATH listing for volume Windows
 Volume serial number is AA0F-5FCF
 C:.
+|   .gitignore
 |   DEVELOPER.md
 |   local-tree.ps1
 |   local-tree.txt
 |   README.md
 |   start-dev.ps1
 |   Values.txt
+|
++---.venv
+|       [Contents excluded]
 |
 +---backend
 |   |   .env
@@ -28,6 +32,10 @@ C:.
 |   |
 |   +---build
 |   |       [Contents excluded]
+|   |
+|   +---cookies
+|   |       .gitignore
+|   |       youtube-cookies.txt
 |   |
 |   +---gradle
 |   |   \---wrapper
@@ -158,53 +166,221 @@ C:.
 |       |   |                           TopicDtoMapper.java
 |       |   |
 |       |   \---resources
-|       |       +---csv
-|       |       |       Branches.csv
-|       |       |       ct_lrequirements.csv
-|       |       |       ct_resource_tags.csv
-|       |       |       ct_resource_tags_PLANNING.csv.txt
-|       |       |       ct_resource_to_topic.csv
-|       |       |       ct_resource_to_topic_PLANNING.csv.txt
-|       |       |       ct_topic_tags.csv
-|       |       |       ct_topic_tags_PLANNING.csv.txt
-|       |       |       ct_topic_tags_PLANNING.txt
-|       |       |       ct_uses_source.csv
-|       |       |       transparent_topic_tags.txt
-|       |       |       t_contact_type.csv
-|       |       |       t_inter_type.csv
-|       |       |       t_language.csv
-|       |       |       t_req_type.csv
-|       |       |       t_resource.csv
-|       |       |       t_resource_type.csv
-|       |       |       t_source.csv
-|       |       |       t_source_author.csv
-|       |       |       t_source_type.csv
-|       |       |       t_tag.csv
-|       |       |       t_tag_PLANNING.txt
-|       |       |       t_timezone.csv
-|       |       |       t_topic.csv
-|       |       |       t_topic_levels.csv
-|       |       |       t_topic_type.csv
-|       |       |       t_topic_url.csv
+|       |       |   video_to_source.py
 |       |       |
-|       |       \---scripts
-|       |           |   README.md
-|       |           |   resource_tags_assignment.py
-|       |           |   topic_tags_assignment.py
-|       |           |   weight_dist_bruteforce.py
-|       |           |   Weight_Dist_Test.xlsx
-|       |           |
-|       |           +---YouTubeToCSV
-|       |           |       README.md
-|       |           |       t_source.csv
-|       |           |       t_source_author.csv
-|       |           |       VideoURLs.txt
-|       |           |       VideoURLs_IMPORT.txt
-|       |           |       YouTubeToCSV.py
-|       |           |
-|       |           \---__pycache__
-|       |                   resource_tags_assignment.cpython-314.pyc
-|       |                   topic_tags_assignment.cpython-314.pyc
+|       |       +---csv
+|       |       |   |   ct_lrequirements.csv
+|       |       |   |   ct_resource_tags.csv
+|       |       |   |   ct_resource_tags_PLANNING.csv.txt
+|       |       |   |   ct_resource_to_topic.csv
+|       |       |   |   ct_resource_to_topic_PLANNING.csv.txt
+|       |       |   |   ct_topic_tags.csv
+|       |       |   |   ct_topic_tags_PLANNING.csv.txt
+|       |       |   |   ct_uses_source.csv
+|       |       |   |   t_contact_type.csv
+|       |       |   |   t_inter_type.csv
+|       |       |   |   t_language.csv
+|       |       |   |   t_req_type.csv
+|       |       |   |   t_resource.csv
+|       |       |   |   t_resource_type.csv
+|       |       |   |   t_source.csv
+|       |       |   |   t_source_author.csv
+|       |       |   |   t_source_type.csv
+|       |       |   |   t_tag.csv
+|       |       |   |   t_timezone.csv
+|       |       |   |   t_topic.csv
+|       |       |   |   t_topic_levels.csv
+|       |       |   |   t_topic_type.csv
+|       |       |   |   t_topic_url.csv
+|       |       |   |
+|       |       |   +---topics
+|       |       |   |       Achievements.csv
+|       |       |   |       Branches.csv
+|       |       |   |       Branches_raw.md
+|       |       |   |       Branches_vs_Disciplines_review.csv
+|       |       |   |       Disciplines_enrichment.csv
+|       |       |   |       Disciplines_final.csv
+|       |       |   |       Disciplines_parsed.csv
+|       |       |   |       Disciplines_raw.md
+|       |       |   |       Disciplines_restructured.csv
+|       |       |   |       Spreadsheet_Formulas.md
+|       |       |   |       TASK_DOCS.md
+|       |       |   |       TASK_PLAN.md
+|       |       |   |       t_topic_PLANNING.csv
+|       |       |   |
+|       |       |   \---youtube
+|       |       |           .gitignore
+|       |       |           audiotracks.csv
+|       |       |           channels.csv
+|       |       |           channels_local.csv
+|       |       |           comments.csv
+|       |       |           find_missing_channels_from_playlistitems.py
+|       |       |           playlistItems.csv
+|       |       |           playlists.csv
+|       |       |           playlists_local.csv
+|       |       |           playlist_type.csv
+|       |       |           t_source_OLD.csv
+|       |       |           t_source_PLANNING.csv
+|       |       |           videoCategories.csv
+|       |       |           videos.csv
+|       |       |           videos_local.csv
+|       |       |           videos_transcripts.csv
+|       |       |           video_to_source_log.csv
+|       |       |           _YouTube_Channels.csv
+|       |       |           _YouTube_Courses.txt
+|       |       |           _YouTube_Videos.csv
+|       |       |
+|       |       +---scripts
+|       |       |   |   README.md
+|       |       |   |   resource_tags_assignment.py
+|       |       |   |   topic_tags_assignment.py
+|       |       |   |   weight_dist_bruteforce.py
+|       |       |   |   Weight_Dist_Test.xlsx
+|       |       |   |
+|       |       |   +---embedding
+|       |       |   |   |   TASK_DOCS.md
+|       |       |   |   |   TASK_PLAN.md
+|       |       |   |   |
+|       |       |   |   \---testing
+|       |       |   |       |   base_tag_order.py
+|       |       |   |       |   tag_redundancy_demo.py
+|       |       |   |       |   tag_update.py
+|       |       |   |       |
+|       |       |   |       \---data
+|       |       |   |               tag_change_log.txt
+|       |       |   |               tag_preplanning.txt
+|       |       |   |               tag_update_candidates.txt
+|       |       |   |               t_tag_PLANNING.txt
+|       |       |   |
+|       |       |   +---topics
+|       |       |   |       build_topic_planning_csv.py
+|       |       |   |       check_branches_vs_disciplines.py
+|       |       |   |       enrich_disciplines_csv.py
+|       |       |   |       parse_disciplines.py
+|       |       |   |       restructure_disciplines_csv.py
+|       |       |   |       sync_disciplines_enrichment.py
+|       |       |   |
+|       |       |   +---YouTubeToCSV
+|       |       |   |       README.md
+|       |       |   |       t_source.csv
+|       |       |   |       t_source_author.csv
+|       |       |   |       VideoURLs.txt
+|       |       |   |       VideoURLs_IMPORT.txt
+|       |       |   |       YouTubeToCSV.py
+|       |       |   |
+|       |       |   +---YouTube_Data
+|       |       |   |   |   audiotrack_query.py
+|       |       |   |   |   package.json
+|       |       |   |   |   sanitize_youtube_csv.py
+|       |       |   |   |   transcript_query.py
+|       |       |   |   |   t_source_planning_update.py
+|       |       |   |   |   video_query.py
+|       |       |   |   |   YouTubeChannels.csv
+|       |       |   |   |   youtubei_helper.js
+|       |       |   |   |
+|       |       |   |   +---audiotracks
+|       |       |   |   |   |   provider_common.py
+|       |       |   |   |   |   provider_manager.py
+|       |       |   |   |   |   provider_types.py
+|       |       |   |   |   |   youtubei_provider.py
+|       |       |   |   |   |   ytdl_core_helper.js
+|       |       |   |   |   |   ytdl_core_provider.py
+|       |       |   |   |   |   yt_dlp_provider.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           provider_common.cpython-314.pyc
+|       |       |   |   |           provider_manager.cpython-314.pyc
+|       |       |   |   |           provider_types.cpython-314.pyc
+|       |       |   |   |           youtubei_provider.cpython-314.pyc
+|       |       |   |   |           ytdl_core_provider.cpython-314.pyc
+|       |       |   |   |           yt_dlp_provider.cpython-314.pyc
+|       |       |   |   |           __init__.cpython-314.pyc
+|       |       |   |   |
+|       |       |   |   +---node_modules
+|       |       |   |   |       [Contents excluded]
+|       |       |   |   |
+|       |       |   |   +---testing
+|       |       |   |   |   |   audio_tracks_smoke_test.py
+|       |       |   |   |   |   test_prep_helpers.py
+|       |       |   |   |   |   youtube_api_smoke_test.py
+|       |       |   |   |   |
+|       |       |   |   |   \---data
+|       |       |   |   |           audiotracks.csv
+|       |       |   |   |           channels.csv
+|       |       |   |   |           channels_local.csv
+|       |       |   |   |           comments.csv
+|       |       |   |   |           Embedding test.txt
+|       |       |   |   |           playlistItems.csv
+|       |       |   |   |           playlists.csv
+|       |       |   |   |           playlists_local.csv
+|       |       |   |   |           playlist_type.csv
+|       |       |   |   |           t_source_OLD.csv
+|       |       |   |   |           t_source_PLANNING.csv
+|       |       |   |   |           videoCategories.csv
+|       |       |   |   |           videos.csv
+|       |       |   |   |           videos_local.csv
+|       |       |   |   |           videos_transcripts.csv
+|       |       |   |   |           video_to_source_log.csv
+|       |       |   |   |           _YouTube_Channels.csv
+|       |       |   |   |           _YouTube_Courses.txt
+|       |       |   |   |
+|       |       |   |   +---video_query_helpers
+|       |       |   |   |   |   backfill.py
+|       |       |   |   |   |   channel_processing.py
+|       |       |   |   |   |   course.py
+|       |       |   |   |   |   csv_io.py
+|       |       |   |   |   |   env_utils.py
+|       |       |   |   |   |   http_utils.py
+|       |       |   |   |   |   normalize.py
+|       |       |   |   |   |   playlist_processing.py
+|       |       |   |   |   |   prep.py
+|       |       |   |   |   |   prep_phase.py
+|       |       |   |   |   |   sanitizer.py
+|       |       |   |   |   |   single_video.py
+|       |       |   |   |   |   summary.py
+|       |       |   |   |   |   utils.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           backfill.cpython-314.pyc
+|       |       |   |   |           channel_processing.cpython-314.pyc
+|       |       |   |   |           constants.cpython-314.pyc
+|       |       |   |   |           course.cpython-314.pyc
+|       |       |   |   |           csv_io.cpython-314.pyc
+|       |       |   |   |           env_utils.cpython-314.pyc
+|       |       |   |   |           http_utils.cpython-314.pyc
+|       |       |   |   |           normalize.cpython-314.pyc
+|       |       |   |   |           playlist_processing.cpython-314.pyc
+|       |       |   |   |           prep.cpython-314.pyc
+|       |       |   |   |           prep_phase.cpython-314.pyc
+|       |       |   |   |           sanitizer.cpython-314.pyc
+|       |       |   |   |           single_video.cpython-314.pyc
+|       |       |   |   |           summary.cpython-314.pyc
+|       |       |   |   |           utils.cpython-314.pyc
+|       |       |   |   |           __init__.cpython-314.pyc
+|       |       |   |   |
+|       |       |   |   +---youtube_transcripts
+|       |       |   |   |   |   csv_utils.py
+|       |       |   |   |   |   TASK_DOCS.md
+|       |       |   |   |   |   temp_transcripthq_response.json
+|       |       |   |   |   |   transcripthq_client.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           csv_utils.cpython-314.pyc
+|       |       |   |   |           transcripthq_client.cpython-314.pyc
+|       |       |   |   |           __init__.cpython-314.pyc
+|       |       |   |   |
+|       |       |   |   \---__pycache__
+|       |       |   |           video_query.cpython-314.pyc
+|       |       |   |
+|       |       |   \---__pycache__
+|       |       |           resource_tags_assignment.cpython-314.pyc
+|       |       |           topic_tags_assignment.cpython-314.pyc
+|       |       |
+|       |       \---update
+|       |               source_add_languages.py
 |       |
 |       \---test
 |           \---java
@@ -279,16 +455,37 @@ C:.
 |   |   api-contract.md
 |   |   Kompetenzmatrix_M320.md
 |   |   Kompetenzmatrix_M322.md
+|   |   PLANUNG2.md
 |   |   Projektaufgabe.md
 |   |   ProjektLogbuch.md
 |   |   USE_CASES.md
+|   |
+|   +---Data_Flow
+|   |   |   Data_Flow.md
+|   |   |   YouTube_Data_Quota.md
+|   |   |
+|   |   +---Object_Processing
+|   |   |       Abstract.md
+|   |   |       Embedding.md
+|   |   |       TASK_DOCS.md
+|   |   |       TASK_PLAN.md
+|   |   |
+|   |   \---YouTube_Data_API
+|   |           Audio_Tracks.md
+|   |           channels.md
+|   |           comments.md
+|   |           playlistItems.md
+|   |           playlists.md
+|   |           search.md
+|   |           videoCategories.md
+|   |           videos.md
+|   |           Video_Transcripts.md
 |   |
 |   \---legacy
 |           PLANUNG.md
 |
 +---frontend
 |   |   index.html
-|   |   package-lock.json
 |   |   package.json
 |   |   vite.config.mts
 |   |
@@ -351,6 +548,28 @@ C:.
 |               TopicDetailView.js
 |               TopicsListView.js
 |
-\---Screenshots
-        Request Failed.png
++---Screenshots
+|       Request Failed.png
+|       Resources_Old.png
+|       topics_Old.png
+|
+\---tags
+    |   Tag_Strategy.md
+    |   TASK_DOCS.md
+    |   TASK_PLAN.md
+    |
+    \---testing
+        |   tag_redundancy_demo.py
+        |
+        +---data
+        |       ct_topic_tags_PLANNING.csv.txt
+        |       t_tag_PLANNING.txt
+        |       t_topic_PLANNING.csv
+        |
+        +---logs
+        |       tag_eval_v1.txt
+        |
+        \---scripts
+                eval_queries_v1.py
+                tag_assign_v1.py
 
