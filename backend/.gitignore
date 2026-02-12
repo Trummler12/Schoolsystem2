@@ -2,3 +2,4 @@ bin/
 .gradle/
 .env
 .env.*
+build/
